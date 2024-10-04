@@ -221,7 +221,70 @@ Apply the following ruleset for Prettier:
 
 > **What improvements in your codebase were introduced by using TS instead of JS? Name at least 3 and explain why.**
 
-Present your findings here...
+My findings:
+
+1. **Static Type Checking**
+
+**Improvement:** TypeScript enforces type declarations, allowing developers to specify the types of variables, parameters, and return values.<br>
+**Why:** This helps catch type-related errors at compile time rather than runtime. In large codebases, type mismatches are common sources of bugs, and TypeScript prevents them early. For example, trying to assign a string to a number-typed variable will be caught immediately in TypeScript.<br>
+
+```JS
+// Bad (JavaScript)
+const fetchImageUrl = (fileName) => {};
+
+// Good (TypeScript - with type checking)
+const fetchImageUrl = (fileName: string): Promise<string> => {};
+```
+
+2. **Union and Intersection Types**
+
+**Improvement:** TypeScript allows defining union types (e.g., a value can be one of several types) and intersection types (combining multiple types). This adds flexibility while maintaining strong type safety.<br>
+**Why:** Union types are helpful when dealing with functions that can accept multiple types of inputs, while intersection types are great for combining multiple types into one structure, allowing for more expressive and reusable code.<br>
+
+```JS
+// Union Type: can accept string or number
+const params: Record<string, string | number> = {
+  action: 'parse',
+  page: 'title',
+  prop: 'wikitext',
+  section: 3,
+  format: 'json',
+  origin: '*',
+};
+
+
+// Intersection Type: combines Bear and Animal into one
+interface Bear {
+  name: string;
+  binomial: string;
+  image: string;
+  range: string;
+}
+
+interface Animal {
+  legs: number;
+}
+const bear1: Bear & Animal = { name: 'Panda', binomial: 'Ailuropoda melanoleuca', image: 'panda.jpg', range: 'China', legs: 4 };
+```
+
+3. **Enhanced Refactoring and Code Maintenance**
+
+**Improvement:** TypeScript's static typing provides safety when refactoring code. It ensures that when a change is made, all parts of the codebase that are affected by that change are automatically flagged for review.<br>
+**Why:** Refactoring becomes less risky because TypeScript will throw errors if a function or variable is being used incorrectly after changes. This means developers can confidently update and scale their applications without introducing hidden bugs.<br>
+
+```JS
+// Renaming or changing this interface will flag any usage across the codebase
+interface Bear {
+  name: string;
+  binomial: string;
+  image: string;
+  range: string;
+  // Adding a new field here will automatically highlight the need for its usage elsewhere
+  habitat: string;
+}
+```
+
+There would be also others like `Non-nullable Types` or `Module System Support`, ...
 
 ## 3. CI/CD Pipeline Playground (5 Pts.)
 
