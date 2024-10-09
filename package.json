@@ -10,7 +10,9 @@
     "lint:fix": "eslint ./src/**/*.{js,ts} --fix",
     "format": "prettier --write './src/**/*.{js,ts}'",
     "format:check": "prettier --check './src/**/*.{js,ts}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "lint-staged": {
     "*.{js, jsx,ts,tsx}": [
@@ -29,6 +31,7 @@
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "typescript": "^5.5.3",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vitest": "^2.1.2"
   }
 }
