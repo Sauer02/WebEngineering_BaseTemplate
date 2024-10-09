@@ -73,6 +73,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: dist # The folder where Vite outputs the build artifacts.
+          branch: main
+          folder: dist
           github_token: ${{ secrets.GITHUB_TOKEN }}
