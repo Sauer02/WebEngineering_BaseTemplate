@@ -20,7 +20,7 @@ const fetchImageUrl = async (fileName: string): Promise<string> => {
     const pages = data.query.pages;
     const imageInfo = Object.values(pages)[0]?.imageinfo;
 
-    if (imageInfo && imageInfo.length > 0) {
+    if (imageInfo !== null && imageInfo !== undefined && imageInfo.length > 0) {
       return imageInfo[0].url;
     } else {
       throw new Error('Image not found.');
