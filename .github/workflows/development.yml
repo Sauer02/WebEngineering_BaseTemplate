@@ -6,9 +6,5 @@ on:
       - development
 
 jobs:
-   lint-test:
-    runs-on: ubuntu-latest
-    steps:
-       name: Execute lint & test from shared file
-        uses: ./.github/workflows/common.yml
-
+  lint-test:
+    uses: ./.github/workflows/common.yml

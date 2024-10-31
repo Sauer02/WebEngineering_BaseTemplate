@@ -23,10 +23,7 @@ concurrency:
 
 jobs:
   lint-test:
-    runs-on: ubuntu-latest
-    steps:
-       name: Execute lint & test from shared file
-        uses: ./.github/workflows/common.yml
+    uses: ./.github/workflows/common.yml
 
   # Build job
   build:
