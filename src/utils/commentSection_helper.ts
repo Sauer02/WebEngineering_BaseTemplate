@@ -34,13 +34,11 @@ const toggleCommentVisibility = (
   showHideBtn: HTMLButtonElement,
   commentWrapper: HTMLDivElement
 ): void => {
-  if (showHideBtn.textContent === SHOW_COMMENTS) {
-    showHideBtn.textContent = HIDE_COMMENTS;
-    commentWrapper.style.display = 'block';
-  } else {
-    showHideBtn.textContent = SHOW_COMMENTS;
-    commentWrapper.style.display = 'none';
-  }
+  const expanded = showHideBtn.getAttribute('aria-expanded') === 'true';
+  showHideBtn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+
+  showHideBtn.textContent = expanded ? HIDE_COMMENTS : SHOW_COMMENTS;
+  commentWrapper.style.display = expanded ? 'block' : 'none';
 };
 
 const initializeCommentForm = (): void => {

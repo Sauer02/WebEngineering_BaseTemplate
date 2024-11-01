@@ -312,42 +312,72 @@ Use the tools presented in our accessibility workshop to test the accessibility 
 
 Test the current color contrast (text/background), report the results of the test, and then fix them by changing the assigned colors.
 
-_Present your reports here._
+_Report:_
+I used the wave tool and got 43 contrast issues.
+
+- changed titel of the page to be black (on the light grey / white background)
+- adapted the other background (green) to be lighter, so darker colors can be read better
+- adapted the links (a tag) to use a darker blue
+- with those three changes, all contrast issues were fixed
 
 **(0.5) Semantic HTML**
 
 Report on what happens when you try to navigate the page using a screen reader. Fix those navigation issues.
 
-_Present your reports here._
+_Report:_
+
+- changed all the font tags with different sizes, to proper heading tags like h1, h2, h3
+  - with that screen readers can jump with hotkey "H" directly between the different heading tags
+- changed div elements with class header & nav to real html tags with "header" and "nav"
+- changed the div with class "secondary" to also use the section tag with "aria-labelledby" to refer to the heading
 
 **(0.5) Audio**
 
 The `<audio>` player isn't accessible to hearing impaired (deaf) people — can you add some kind of accessible alternative for these users?
 
-_Present your findings and fixes here._
+_Report:_
+
+- added "aria-label" for the audio, to the describe the purpose for screen reader
 
 **(1) Forms**
 
 - The `<input>` element in the search form at the top could do with a label, but we don't want to add a visible text label that would potentially spoil the design and isn't really needed by sighted users. Fix this issue by adding a label that is only accessible to screen readers.
 - The two `<input>` elements in the comment form have visible text labels, but they are not unambiguously associated with their labels — how do you achieve this? Note that you'll need to update some of the CSS rule as well.
 
-_Present your findings and fixes here._
+_Report:_
+
+- added a aria-label to the search input, which describes the input by the screen reader
+- added a label for the search input to describe it better, but hide it from the user view
+- added a label tag with the for attribute for the comment section, so the label is associated with the input and if the user clicks on it, it also jumps into the input
 
 **(0.5) Comment section**
 
 The show/hide comment control button is not currently keyboard-accessible. Can you make it keyboard accessible, both in terms of focusing it using the tab key, and activating it using the return key?
 
-_Present your findings and fixes here._
+_Report:_
+
+- using a button element instead of the div now, support out of the box keyboard handling
+- added "aria-controls" & "aria-expanded" to the button
+  - based now on the "aria-expanded" I change in the TS code now the behaviour
 
 **(1) The table**
 
 The data table is not currently very accessible — it is hard for screen reader users to associate data rows and columns together, and the table also has no kind of summary to make it clear what it shows. Can you add some features to your HTML to fix this problem?
 
-_Present your findings and fixes here._
+_Report:_
+
+- changed the table header row from "td" to "th scope='col'"
+- gave it a caption, which is a title for the table
+- added "aria-describedby" with more detailed information
 
 **(1) More Findings**
 
 What other accessibility issues did you find? Explain how you did fix them.
+
+_Report:_
+
+- added the "lang" property to the "html" tag, so SEO and also screen readers can know, which language is used on this website
+- added alt texts to the img
 
 # Extended Coding Playgrounds
 
