@@ -338,6 +338,7 @@ The `<audio>` player isn't accessible to hearing impaired (deaf) people — can 
 _Report:_
 
 - added "aria-label" for the audio, to the describe the purpose for screen reader
+- added a transcript paragraph below and linked them by "aria-describedby", according to the ACT-rules community
 
 **(1) Forms**
 
@@ -378,6 +379,7 @@ _Report:_
 
 - added the "lang" property to the "html" tag, so SEO and also screen readers can know, which language is used on this website
 - added alt texts to the img
+- added the text in the html into "p" elements and removed the "br"
 
 # Extended Coding Playgrounds
 

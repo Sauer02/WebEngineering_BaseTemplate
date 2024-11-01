@@ -105,7 +105,7 @@ const renderBearCard = (bear: Bear): string => {
   return `
     <div>
       <h3>${bear.name} (${bear.binomial})</h3>
-      <img src="${bear.image}" alt="${bear.name}" style="width:200px; height:auto;">
+      <img src="${bear.image}" alt="${bear.name} - ${bear.binomial}" style="width:200px; height:auto;">
       <p><strong>Range:</strong> ${bear.range}</p>
     </div>
   `;
