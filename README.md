@@ -380,6 +380,7 @@ _Report:_
 - added the "lang" property to the "html" tag, so SEO and also screen readers can know, which language is used on this website
 - added alt texts to the img
 - added the text in the html into "p" elements and removed the "br"
+- made font-size of the p text a bit bigger
 
 # Extended Coding Playgrounds
 

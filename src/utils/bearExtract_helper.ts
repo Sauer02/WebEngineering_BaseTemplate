@@ -96,7 +96,7 @@ const updateBearUI = (bears: Bear[]): void => {
     return;
   }
 
-  moreBearsSection.innerHTML = bears
+  moreBearsSection.innerHTML += bears
     .map((bear) => renderBearCard(bear))
     .join('');
 };
